@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>📚 Issued Books List</h2>
+  <a class="btn-create" routerLink="/create">+ New Issue</a>
+
+  <div class="author-grid">
+    <div class="author-card" *ngFor="let item of issues(); trackBy: trackById">
+      <div class="author-info">
+        <p><strong>Issue ID:</strong> {{ item.issueId }}</p>
+        <p><strong>Member:</strong> {{ item.member?.memberName || 'Unknown Member' }}</p>
+        <p><strong>Issue Date:</strong> {{ item.issueDate | date:'shortDate' }}</p>
+        <p><strong>Return Date:</strong> {{ item.returnDate ? (item.returnDate | date:'shortDate') : 'N/A' }}</p>
+
+        <p><strong>Books:</strong></p>
+        <table class="books-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let b of item.books">
+              <td>{{ b.title || 'N/A' }}</td>
+              <td>{{ b.author || 'N/A' }}</td>
+              <td>{{ b.category || 'N/A' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="author-actions">
+        <a class="btn-edit" [routerLink]="['/edit', item.issueId]">Edit</a>
+        <a class="btn-details" [routerLink]="['/details', item.issueId]">Details</a>
+        <button class="btn-delete" (click)="deleteIssue(item.issueId)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Show message if no issues -->
+  <div *ngIf="issues().length === 0" class="no-data">
+    No issues found.
+  </div>
+</div>

@@ -1,0 +1,54 @@
+
+<div class="black-theme">
+  <div *ngIf="loading()">Loading issue details...</div>
+
+  <div *ngIf="errorMessage()" class="text-danger">
+    {{ errorMessage() }}
+  </div>
+
+  <div *ngIf="issue()">
+    <h2>Issue Details</h2>
+
+    <div class="form-grid">
+
+      <!-- LEFT: Member Info + Photo -->
+      <div class="left-column">
+        <h4>Member Information</h4>
+        <div>
+          <strong>Name:</strong> {{ issue()?.member?.memberName }}
+        </div>
+        <div>
+          <strong>Mobile:</strong> {{ issue()?.member?.mobile }}
+        </div>
+        <div>
+          <strong>Address:</strong> {{ issue()?.member?.address }}
+        </div>
+        <div *ngIf="issue()?.member?.photoPath">
+          <strong>Photo:</strong><br>
+          <img [src]="issue()?.member?.photoPath" width="120" alt="Member Photo">
+        </div>
+      </div>
+
+      <!-- RIGHT: Books + Issue Info -->
+      <div class="right-column">
+        <h4>Books</h4>
+        <div *ngFor="let book of issue()?.books; let i = index" class="book-item">
+          <div><strong>Title:</strong> {{ book.title }}</div>
+          <div><strong>Author:</strong> {{ book.author }}</div>
+          <div><strong>Category:</strong> {{ book.category }}</div>
+          <hr>
+        </div>
+
+        <h4>Issue Information</h4>
+        <div><strong>Issue Date:</strong> {{ issue()?.issueDate | date:'mediumDate' }}</div>
+        <div><strong>Return Date:</strong> {{ issue()?.returnDate | date:'mediumDate' }}</div>
+        
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-secondary" (click)="goBack()">Back to Issues</button>
+    </div>
+    </div>
+  </div>

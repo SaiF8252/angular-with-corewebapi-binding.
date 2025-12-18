@@ -1,0 +1,44 @@
+/* Header (Pakistan Flag Theme) */
+header {
+  background-color: #006600; /* Pakistan Green */
+  color: #fff;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  border-bottom: 4px solid #fff; /* White stripe effect */
+}
+
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+
+    header nav a:hover {
+      color: #ffcc00; /* light highlight */
+    }
+
+  header nav button {
+    background-color: #fff; /* white button like Pakistan flag crescent/star contrast */
+    border: none;
+    color: #006600; /* green text */
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+    header nav button:hover {
+      background-color: #e6e6e6;
+      color: #004d00;
+    }
+
+/* Main container padding */
+.container {
+  padding: 2rem;
+}

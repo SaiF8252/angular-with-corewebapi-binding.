@@ -1,0 +1,111 @@
+<div class="create-container">
+  <h2>Create Issue</h2>
+
+  <form (ngSubmit)="saveData()" #form="ngForm">
+
+    <div class="form-grid">
+
+      <!-- LEFT: Member Info + Photo -->
+      <div class="left-column">
+        <h4>Member Information</h4>
+        <div class="bg-danger text-white p-2 mb-2"
+             *ngIf="form.invalid && form.touched">
+          There are problems with the form
+          <ul>
+            <li *ngFor="let error of ValidationHelper.getFormValidationMessages(form)">
+              {{error}}
+            </li>
+          </ul>
+        </div>
+        <label>Member Name</label>
+        <input type="text" class="form-control"
+               [(ngModel)]="model.member!.memberName"
+               name="memberName" required>
+        
+        <label>Mobile</label>
+        <input type="text" class="form-control"
+               [(ngModel)]="model.member!.mobile"
+               name="mobile">
+
+        <label>Address</label>
+        <input type="text" class="form-control"
+               [(ngModel)]="model.member!.address"
+               name="address">
+
+        <label>Photo</label>
+        <input type="file"
+               (change)="uploadImage($event)"
+               accept="image/*"
+               [disabled]="uploading">
+        <img *ngIf="model.member?.photoPath"
+             [src]="model.member?.photoPath"
+             width="120"
+             alt="Member Photo">
+      </div>
+
+      <!-- RIGHT: Books + Issue Info -->
+      <div class="right-column">
+       <h4>Books</h4>
+<div class="form-group" *ngFor="let book of model.books; let i = index">
+  <label>Book Title</label>
+  <select class="form-control"
+          [(ngModel)]="book.title"
+          name="title{{i}}"
+          required
+          (change)="onBookTitleChange(book)">
+    <option value="" disabled selected>Select a book</option>
+    <option *ngFor="let b of availableBooks" [value]="b.title">
+      {{ b.title }}
+    </option>
+  </select>
+
+  <label>Author</label>
+  <input type="text" class="form-control"
+         [(ngModel)]="book.author"
+         name="author{{i}}"
+         placeholder="Author"
+         readonly>
+
+  <label>Category</label>
+  <input type="text" class="form-control"
+         [(ngModel)]="book.category"
+         name="category{{i}}"
+         placeholder="Category"
+         readonly>
+
+  <button type="button" class="btn btn-danger" (click)="removeBook(i)">Remove Book</button>
+  <hr>
+</div>
+
+<button type="button" class="btn btn-secondary" (click)="addBook()">Add Book</button>
+
+
+        <h4>Issue Information</h4>
+        <label>Issue Date</label>
+        <input type="date"
+               class="form-control"
+               [(ngModel)]="model.issueDate"
+               name="issueDate"
+               required>
+
+        <label>Return Date</label>
+        <input type="date"
+               class="form-control"
+               [(ngModel)]="model.returnDate"
+               name="returnDate">
+
+        <label>
+          <input type="checkbox" [(ngModel)]="model.isReturned" name="isReturned">
+          Is Returned
+        </label>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [disabled]="uploading">Create Issue</button>
+      <button type="button" class="btn btn-secondary" (click)="goToIndex()">Cancel</button>
+    </div>
+
+  </form>
+</div>

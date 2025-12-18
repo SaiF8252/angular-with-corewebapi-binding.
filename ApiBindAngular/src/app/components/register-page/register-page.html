@@ -1,0 +1,33 @@
+<form (ngSubmit)="FormSubmit()">
+  <fieldset>
+    <legend>Register Page</legend>
+
+    <div>
+      <label>
+        User name:
+        <input [(ngModel)]="model().userName" name="userName" required placeholder="user name or email" />
+      </label>
+    </div>
+    
+    <div>
+      <label>
+        Password:
+        <input [(ngModel)]="model().password" type="password" name="password" required placeholder="password" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Confirm Password:
+        <input [(ngModel)]="model().comparePassword" type="password" name="comparePassword" required placeholder="confirm password" />
+      </label>
+    </div>
+
+
+
+    <div>
+      <button type="submit">Register</button>
+      <a routerLink="/login">Already have an account?</a>
+    </div>
+  </fieldset>
+</form>

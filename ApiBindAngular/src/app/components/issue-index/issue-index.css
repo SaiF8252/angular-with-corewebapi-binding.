@@ -1,0 +1,121 @@
+.container {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #00704a;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* New Issue button */
+.btn-create {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 22px;
+  background-color: #00704a;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+  .btn-create:hover {
+    background-color: #004b33;
+    transform: translateY(-2px);
+  }
+
+/* Grid layout for cards */
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Individual card */
+.author-card {
+  background-color: #f4f4f0;
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+  .author-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+  }
+
+.author-info p {
+  margin: 6px 0;
+  color: #004b33;
+  font-size: 0.95em;
+}
+
+/* Nested books table inside card */
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+  .books-table th, .books-table td {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+    color: #004b33;
+  }
+
+  .books-table th {
+    background-color: #d9f0e1;
+  }
+
+/* Buttons inside card */
+.author-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit, .btn-delete, .btn-details {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.btn-edit {
+  background-color: #00704a;
+  color: #fff;
+}
+.btn-details {
+  background-color: darkcyan;
+  color: #fff;
+}
+.btn-details:hover {
+  background-color: darkblue;
+  transform: translateY(-2px);
+}
+
+  .btn-edit:hover {
+    background-color: #004b33;
+    transform: translateY(-2px);
+  }
+
+.btn-delete {
+  background-color: #f44336;
+  color: #fff;
+}
+
+  .btn-delete:hover {
+    background-color: #da190b;
+    transform: translateY(-2px);
+  }

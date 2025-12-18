@@ -1,0 +1,36 @@
+<form (ngSubmit)="FormSubmit()">
+  <fieldset>
+    <legend>Login Page</legend>
+
+    <div>
+      <label>
+        User name:
+        <input [(ngModel)]="model().userName" name="userName" required placeholder="user name or email address" #user="ngModel" />
+      </label>
+
+      <ul *ngIf="user.invalid && user.touched" class="text-danger">
+        <li *ngFor="let error of ValidationHelper.getValidationMessages(user, 'user name')">
+          {{error}}
+        </li>
+      </ul>
+
+
+    </div>
+    <div>
+      <label>
+        Password:
+        <input [(ngModel)]="model().password" type="password" name="password" required  minlength="6"
+           maxlength="20" placeholder="user password" #password="ngModel" />
+      </label>
+      <ul *ngIf="password.invalid && password.touched" class="text-danger">
+        <li *ngFor="let error of ValidationHelper.getValidationMessages(password)">
+          {{error}}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <button type="submit">Login</button>
+      <a routerLink="/register">New?</a>
+    </div>
+  </fieldset>
+</form>

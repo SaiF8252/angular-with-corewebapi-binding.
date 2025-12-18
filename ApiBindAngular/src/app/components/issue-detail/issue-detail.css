@@ -1,0 +1,72 @@
+/* New Zealand Cricket Jersey Theme */
+.black-theme {
+  background-color: #000; /* Black jersey color */
+  color: #fff; /* White text */
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+  .nz-theme h2, .nz-theme h4 {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+.form-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.left-column, .right-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.book-item {
+  background: rgba(255, 255, 255, 0.05); /* subtle highlight */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+img {
+  border: 2px solid #fff;
+  border-radius: 5px;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+button.btn-secondary {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+  button.btn-secondary:hover {
+    background-color: #ddd;
+  }
+
+/* Optional: subtle fern pattern overlay */
+.nz-theme::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background-image: url('assets/fern-pattern.png');*/ /* add fern PNG in assets */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.05;
+  z-index: -1;
+}

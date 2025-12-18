@@ -1,0 +1,15 @@
+<header>
+  <nav *ngIf="!loggedIn()">
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </nav>
+  <nav *ngIf="loggedIn()">
+    <a>{{name()}}</a>
+    <button (click)="auth.Logout()">Logout</button>
+  </nav>
+
+</header>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
