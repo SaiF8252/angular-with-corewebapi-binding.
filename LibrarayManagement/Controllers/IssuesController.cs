@@ -72,6 +72,7 @@ namespace LibrarayManagement.Controllers
             // ===== Master fields =====
             existingIssue.IssueDate = issue.IssueDate;
             existingIssue.ReturnDate = issue.ReturnDate;
+             existingIssue.IsReturned = issue.IsReturned;
 
             // ===== Member update =====
             if (existingIssue.Member != null && issue.Member != null)
